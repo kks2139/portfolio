@@ -4,15 +4,15 @@ import {css} from '@emotion/react';
 
 interface Props {
     text: string
+    size?: number
 }
 
-function Typing({text}: Props){
+function Typing({text, size=45}: Props){
     const arr = text.split('');
     const divRef = useRef<HTMLDivElement | null>(null);
     const tidRef = useRef(0);
 
     useEffect(()=>{
-        let lineCnt = 0;
         tidRef.current = window.setInterval(()=>{
             const el = divRef.current!.querySelector('.hide');
             if(el) el.classList.remove('hide');
@@ -22,7 +22,7 @@ function Typing({text}: Props){
     });
 
     return (
-        <div css={style}>
+        <div css={style(size)}>
             <div className='txt' ref={divRef}>
                 {arr.map((s, i)=> (
                     <span key={i} className='hide'>{s}</span>
@@ -33,11 +33,11 @@ function Typing({text}: Props){
     );
 }
 
-const style = css`
+const style = (size: number)=> (css`
     display: flex;
     align-items: center;
     .txt {
-        font-size: 45px;
+        font-size:${size}px;
         font-weight: bold;
         color: var(--color-main);
         .hide {
@@ -47,7 +47,7 @@ const style = css`
     }
     .cursor {
         width: 4px;
-        height: 40px;
+        height: ${size}px;
         margin-left: 7px;
         transition: .3s;
         background-color: white;
@@ -62,6 +62,6 @@ const style = css`
         50% {opacity: 1;}
         100% {opacity: 0;}
     }
-`;
+`);
 
 export default Typing;

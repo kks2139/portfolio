@@ -28,8 +28,8 @@ const style = css`
     height: 70px;
     padding: 0 50px;
     color: var(--color-main);
-    background-color: rgb(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    background-color: rgb(0, 0, 0, 0.7);
+    backdrop-filter: blur(7px);
     .tit {
         font-size: 30px;
         font-weight: bold;

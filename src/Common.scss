@@ -1,6 +1,8 @@
 :root {
   --color-main: rgb(0, 255, 200);
+  --color-dark-main: rgb(0, 194, 152);
   --color-dark: rgb(41, 41, 41);
+  --color-gray: #7b7b7b;
   --radius: 8px;
 }
 
@@ -26,8 +28,12 @@
 }
 
 body {
-  // background-color: var(--color-dark);
-  background-image: url(./assest/img/stary-sky.jpg);
+  background-color: var(--color-dark);
+  // background-image: url(./assest/img/stary-sky.jpg);
+}
+
+a {
+  color: #00dcff;
 }
 
 div, span {
@@ -36,6 +42,16 @@ div, span {
   -webkit-user-select: none; 
   -khtml-user-select: none; 
   user-select:none;
+}
+
+.sub-title {
+  color: var(--color-main);
+  font-size: 35px;
+  font-weight: bold;
+  margin: 160px 0 15px 0;
+  // background: -webkit-linear-gradient(var(--color-main), white);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 }
 
 .button {
