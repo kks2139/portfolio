@@ -17,7 +17,7 @@ function ButtonMenu({text}: Props){
 
 const style = css`
     width: fit-content;
-    font-size: 18px;
+    font-size: 21px;
     box-sizing: content-box;
     padding: 0 10px;
     margin: 0 20px;
@@ -25,13 +25,13 @@ const style = css`
     color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: .3s;
+    transition: .2s;
     .bar {
         height: 5px;
         width: 0px;
         background-color: var(--color-main);
         border-radius: var(--radius);
-        transition: .3s;
+        transition: .2s;
     }
     &:hover {
         .bar {

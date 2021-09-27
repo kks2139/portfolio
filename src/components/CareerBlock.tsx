@@ -17,7 +17,7 @@ function CareerBlock({}: Props){
                 <div>협력사 등록, 견적서작성, 발주생성, 입고/검수 등 구매 시스템을 구축하는 프로젝트들에 참여하였습니다.</div>
                 <div>
                     개발에서 배포, 운영까지 담당하였고, 주로 Javascript / CSS / HTML 과
-                    <a href='https://library.polymer-project.org/3.0/docs/devguide/feature-overview' target='blank'>[PolymerJS]</a>
+                    <a href='https://library.polymer-project.org/3.0/docs/devguide/feature-overview' target='blank'>PolymerJS</a>
                     라이브러리를
                 </div>
                 <div>사용하여 Front 개발을 진행하였습니다.</div>

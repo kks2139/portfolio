@@ -4,6 +4,7 @@ import Typing from "./Typing";
 import TextSlider from "./TextSlider";
 import CareerBlock from "./CareerBlock";
 import TagBox from "./TagBox";
+import ProjectBlock from "./ProjectBlock";
 
 export {
     TopMenu,
@@ -11,5 +12,6 @@ export {
     Typing,
     TextSlider,
     CareerBlock,
-    TagBox
+    TagBox,
+    ProjectBlock
 }

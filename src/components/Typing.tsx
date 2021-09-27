@@ -17,7 +17,7 @@ function Typing({text, size=45}: Props){
             const el = divRef.current!.querySelector('.hide');
             if(el) el.classList.remove('hide');
             else clearInterval(tidRef.current);
-        }, 120);
+        }, 130);
         return ()=> clearInterval(tidRef.current);
     });
 

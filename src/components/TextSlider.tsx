@@ -23,7 +23,7 @@ function TextSlider({textList, size=20, width=350}: Props){
         tidRef.current = window.setInterval(()=>{
             txtBox.style.transform = `translateY(calc(100% * -${now.current}))`;
             now.current = now.current < textList.length-1 ? now.current + 1 : 0;
-        }, 3000);
+        }, 2800);
         return ()=> clearInterval(tidRef.current);
     }, []);
 
@@ -48,7 +48,7 @@ const style = ({size, width}: cssProps)=> (css`
     .txt-box {
         width: 100%;
         height: ${size + 10}px;
-        transition: .5s;
+        transition: .8s;
     }
 `);
 

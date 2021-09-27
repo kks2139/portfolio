@@ -2,30 +2,55 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {TagBox} from './index';
+import {SiGithub} from 'react-icons/si';
+import {HiOutlineExternalLink} from 'react-icons/hi';
 
 interface Props {
-
+    imgUrl: string
+    projectName: string
+    period: string
+    description: string
+    techList: string[]
+    link: string
+    site: string
 }
 
-function ProjectBlock({}: Props){
+function ProjectBlock({imgUrl, projectName, period, description, techList, link, site}: Props){
+
+    const onClickLink = (e: React.MouseEvent<SVGElement>)=>{
+        const {name} = e.currentTarget.dataset;
+        const url = name === 'git' ? link : site;
+        window.open(url, '_blank');
+    } 
+
     return (
         <div css={style}>
             <div className='wrapper'>
-                <div className='img'>
-                    
+                <div className='preview'>
+                    <img src={imgUrl}></img>
+                    <div className='cir1'></div>
+                    <div className='cir2'></div>
+                    <div className='cir3'></div>
+                    <div className='cir4'></div>
                 </div>
                 <div className='explain'>
                     <div className='tit'>
-
+                        {projectName}
+                    </div>
+                    <div className='for'>
+                        {period}
                     </div>
                     <div className='desc'>
-
+                        {description}
                     </div>
                     <div className='tech'>
-
+                        {techList.map(t => (
+                            <TagBox key={t} text={t}></TagBox>
+                        ))}
                     </div>
                     <div className='link'>
-
+                        <SiGithub size='45' data-name='git' onClick={onClickLink}/>
+                        {site ? <HiOutlineExternalLink size='48' data-name='site' onClick={onClickLink}/> : null}
                     </div>
                 </div>
             </div>
@@ -35,23 +60,112 @@ function ProjectBlock({}: Props){
 
 const style = css`
     padding: 20px 0;
+    margin-bottom: 100px;
     .wrapper {
         display: flex;
-        .img {
-
+        .preview {
+            position: relative;
+            width: 600px;
+            min-width: 600px;
+            height: 400px;
+            padding: 40px;
+            overflow: hidden;
+            border-radius: var(--radius);
+            background-color: #2b8165;
+            &:hover {
+                .cir1 {
+                    transform: scale(1.1);
+                }
+                .cir2 {
+                    transform: scale(1.3);
+                }
+                .cir3 {
+                    transform: scale(2.5);
+                }
+                .cir4 {
+                    transform: scale(2.2);
+                }
+                img {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 30px 10px black;
+                }
+            }
+            img {
+                z-index: 1;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 30px 5px black;
+                transition: .5s;
+            }
+            [class*='cir'] {
+                position: absolute;
+                border-radius: 50%;
+                transition: .5s;
+            }
+            .cir1 {
+                width: 150px;
+                height: 150px;
+                top: -50px;
+                left: -50px;
+                background-color: #bfc5c4;
+            }
+            .cir2 {
+                width: 110px;
+                height: 110px;
+                top: 300px;
+                left: 400px;
+                background-color: #8affe4;
+            }
+            .cir3 {
+                width: 100px;
+                height: 100px;
+                top: 300px;
+                left: -10px;
+                background-color: #9ed5b2;
+            }
+            .cir4 {
+                width: 70px;
+                height: 70px;
+                top: 0;
+                left: 410px;
+                background-color: #80ffad;
+            }
         }
         .explain {
+            padding-left: 40px;
+            flex-grow: 1;
+            color: white;
             .tit {
-                
+                color: var(--color-main);
+                font-size: 37px;
+                margin-bottom: 20px;
+            }
+            .for {
+                font-size: 22px;
+                margin: 6px 0;
             }
             .desc {
-
+                white-space: pre-line;
+                font-size: 20px;
+                line-height: 35px;
             }
             .tech {
-
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 7px;
             }
             .link {
-
+                margin: 15px 0 0 15px;
+                svg {
+                    margin-right: 15px;
+                    transition: .3s;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.1);
+                    }
+                }
             }
         }
     }
