@@ -56,14 +56,14 @@ function CareerBlock({}: Props){
 
 const style = css`
     color: white;
-    font-size: 22px;
+    font-size: 19px;
     a {
         font-weight: bold;
         margin: 0 5px;
     }
     .desc {
         > div {
-            line-height: 40px;
+            line-height: 33px;
             span {
                 font-weight: bold;
             }

@@ -20,14 +20,14 @@ const style = css`
     padding: 2px 10px;
     width: fit-content;
     border-radius: var(--radius);
-    border: 1px solid var(--color-dark-main);
+    border: 1px solid var(--color-main);
     font-size: 19px;
-    color: var(--color-dark-main);
+    color: var(--color-main);
     margin: 5px 15px 5px 0;
     transition: .3s;
     &:hover {
-        border: 1px solid #6bffff;
-        color: #6bffff;
+        border: 1px solid #00f5f5;
+        color: #00f5f5;
     }
 `;
 

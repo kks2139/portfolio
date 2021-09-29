@@ -37,9 +37,9 @@ function ProjectBlock({imgUrl, projectName, period, description, techList, link,
                     <div className='tit'>
                         {projectName}
                     </div>
-                    <div className='for'>
+                    {/* <div className='for'>
                         {period}
-                    </div>
+                    </div> */}
                     <div className='desc'>
                         {description}
                     </div>
@@ -63,10 +63,11 @@ const style = css`
     margin-bottom: 100px;
     .wrapper {
         display: flex;
+        transition: 1s;
         .preview {
             position: relative;
-            width: 600px;
-            min-width: 600px;
+            width: 550px;
+            min-width: 550px;
             height: 400px;
             padding: 40px;
             overflow: hidden;
@@ -137,19 +138,20 @@ const style = css`
             padding-left: 40px;
             flex-grow: 1;
             color: white;
+            transition: 1s;
             .tit {
                 color: var(--color-main);
                 font-size: 37px;
                 margin-bottom: 20px;
             }
             .for {
-                font-size: 22px;
+                font-size: 20px;
                 margin: 6px 0;
             }
             .desc {
                 white-space: pre-line;
-                font-size: 20px;
-                line-height: 35px;
+                font-size: 18px;
+                line-height: 30px;
             }
             .tech {
                 display: flex;
@@ -165,6 +167,36 @@ const style = css`
                         cursor: pointer;
                         transform: scale(1.1);
                     }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1400px) {
+        .wrapper {
+            flex-direction: column;
+            align-items: center;
+            .explain {
+                flex-grow: unset;
+                width: 700px;
+                padding-left: 80px;
+                padding-top: 15px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 710px) {
+        .wrapper {
+            .preview {
+                width: 460px;
+                min-width: 460px;
+                height: 300px;
+            }
+            .explain {
+                width: 450px;
+                padding-left: 0;
+                .tech {
+                    width: calc(100% - 30px);
                 }
             }
         }

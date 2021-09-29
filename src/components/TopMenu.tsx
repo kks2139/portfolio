@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {ButtonMenu} from './index';
-import {AiOutlineHome} from 'react-icons/ai';
+import {AiOutlineHome, AiOutlineMenu, AiOutlineClose} from 'react-icons/ai';
 
 function TopMenu(){
+    const [showDrop, setShowDrop] = useState(false);
+    const divRef = useRef<HTMLDivElement | null>(null);
+
+    const onClickHome = ()=>{
+        document.documentElement.scrollTo(0, 0);
+    }
+
+    const onClickLines = ()=>{
+
+    }
+
     return (
-        <div css={style}>
-            <div className='tit'><AiOutlineHome/>Home</div>
+        <div css={style} ref={divRef}>
+            <div className='tit' onClick={onClickHome}><AiOutlineHome/>KKS.</div>
             <div className='menus'>
-                <ButtonMenu text='About'/>
-                <ButtonMenu text='Projects'/>
-                <ButtonMenu text='Contact'/>
+                <ButtonMenu text='About' targ='About'/>
+                <ButtonMenu text='Projects' targ='Projects'/>
+                <ButtonMenu text='Contact' targ='Contact'/>
             </div>
+            {showDrop ? 
+                <AiOutlineClose className='x' size='30' color='white'/> :
+                <AiOutlineMenu className='lines' size='30' color='white' onClick={onClickLines}/>
+            }
         </div>
     );
 }
@@ -41,6 +56,28 @@ const style = css`
     }
     .menus {
         display: flex;
+    }
+    .lines {
+        display: none;
+        cursor: pointer;
+        transition: .3s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    @media screen and (max-width: 710px){
+        .menus {
+            display: none;
+        }
+        .lines {
+            display: unset;
+        }
+        .show {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(0, 0, 0, 0.7);
+        }
     }
 `;
 

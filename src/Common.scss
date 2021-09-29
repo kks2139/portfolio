@@ -1,8 +1,10 @@
 :root {
+  scroll-behavior: smooth;
   --color-main: rgb(0, 255, 200);
   --color-dark-main: rgb(0, 194, 152);
   --color-dark: rgb(41, 41, 41);
   --color-gray: #7b7b7b;
+  --color-link: #00dcff;
   --radius: 8px;
 }
 
@@ -33,16 +35,16 @@ body {
 }
 
 a {
-  color: #00dcff;
+  color: var(--color-link);
 }
 
-div, span {
-  -ms-user-select: none;
-  -moz-user-select: -moz-none; 
-  -webkit-user-select: none; 
-  -khtml-user-select: none; 
-  user-select:none;
-}
+// div, span {
+//   -ms-user-select: none;
+//   -moz-user-select: -moz-none; 
+//   -webkit-user-select: none; 
+//   -khtml-user-select: none; 
+//   user-select:none;
+// }
 
 .sub-title {
   color: var(--color-main);
@@ -68,7 +70,5 @@ div, span {
   transition: .2s;
   &:hover {
     box-shadow: 0 10px 20px -6px black;
-  }
-  &:active {
   }
 }
