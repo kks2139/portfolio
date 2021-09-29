@@ -51,6 +51,20 @@ const style = css`
             width: 100%;
         }
     }
+
+    @media screen and (max-width: 710px){
+        .txt {
+            transition: .3s;
+            font-size: 18px;
+            padding: 0 20px 25px 20px;
+            &:hover {
+                color: var(--color-main);
+            }
+        }
+        .bar {
+            display: none;
+        }
+    }
 `;
 
 export default ButtonMenu;

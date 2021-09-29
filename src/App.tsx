@@ -190,11 +190,9 @@ const style = css`
       .about-box {
         .rocket-box {
           position: fixed;
-          // left: 0;
-          // transform: scale(0.5);
           top: -116px;
           left: 40px;
-          transform: scale(0.195);
+          transform: scale(0.16);
           z-index: 11;
         }
       }

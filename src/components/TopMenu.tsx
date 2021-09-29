@@ -12,8 +12,13 @@ function TopMenu(){
         document.documentElement.scrollTo(0, 0);
     }
 
-    const onClickLines = ()=>{
-
+    const onClickIcon = ()=>{
+        const menus = divRef.current!.querySelector('.menus')!;
+        menus.classList.toggle('drop');
+        if(showDrop){
+        }else{
+        }
+        setShowDrop(!showDrop);
     }
 
     return (
@@ -25,8 +30,8 @@ function TopMenu(){
                 <ButtonMenu text='Contact' targ='Contact'/>
             </div>
             {showDrop ? 
-                <AiOutlineClose className='x' size='30' color='white'/> :
-                <AiOutlineMenu className='lines' size='30' color='white' onClick={onClickLines}/>
+                <AiOutlineClose className='icon' size='30' color='white' onClick={onClickIcon}/> :
+                <AiOutlineMenu className='icon' size='30' color='white' onClick={onClickIcon}/>
             }
         </div>
     );
@@ -57,7 +62,7 @@ const style = css`
     .menus {
         display: flex;
     }
-    .lines {
+    .icon {
         display: none;
         cursor: pointer;
         transition: .3s;
@@ -70,13 +75,19 @@ const style = css`
         .menus {
             display: none;
         }
-        .lines {
+        .icon {
             display: unset;
         }
-        .show {
-            display: flex;
+        .drop {
+            position: fixed;
+            top: 70px;
+            right: 0;
+            display: flex !important;
             flex-direction: column;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
             background-color: rgb(0, 0, 0, 0.7);
+            backdrop-filter: blur(7px);
         }
     }
 `;

@@ -73,6 +73,7 @@ const style = css`
             overflow: hidden;
             border-radius: var(--radius);
             background-color: #2b8165;
+            transition: 1s;
             &:hover {
                 .cir1 {
                     transform: scale(1.1);
