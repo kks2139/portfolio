@@ -39,19 +39,24 @@ function TextSlider({textList, size=20, width=350}: Props){
 }
 
 const style = ({size, width}: cssProps)=> (css`
-font-size: ${size}px;
+    width: ${width}px;
+    font-size: ${size}px;
     overflow: hidden;
-    margin: 0 10px;
+    margin: 0 10px 10px 0;
     text-align: center;
     border-bottom: 1px solid var(--color-main);
     .txt-box {
-        // width: 100%;
-        height: ${size + 10}px;
+        height: ${size + 12}px;
         transition: .8s;
         .txt {
+            height: ${size + 12}px;
             width: ${width}px;
             min-width: ${width}px;
         }
+    }
+
+    @media screen and (max-width: 710px){
+        font-size: 23px;
     }
 `);
 

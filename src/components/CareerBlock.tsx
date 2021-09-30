@@ -39,7 +39,7 @@ function CareerBlock({}: Props){
                     <TagBox text='Oracle RDB'/>
                 </div>
                 <div>
-                <div className='el'>• DevOps</div>
+                    <div className='el'>• DevOps</div>
                     <TagBox text='Jenkins'/>
                     <TagBox text='FTP'/>
                 </div>
@@ -76,6 +76,18 @@ const style = css`
             align-items: center;
             .el {
                 width: 120px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 710px){
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            > div {
+                .el {
+                    display: none;
+                }
             }
         }
     }

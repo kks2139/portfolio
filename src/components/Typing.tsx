@@ -37,6 +37,7 @@ const style = (size: number)=> (css`
     display: flex;
     align-items: center;
     .txt {
+        white-space: nowrap;
         font-size:${size}px;
         font-weight: bold;
         color: var(--color-main);
@@ -48,7 +49,7 @@ const style = (size: number)=> (css`
     .cursor {
         width: 4px;
         height: ${size}px;
-        margin-left: 7px;
+        margin-left: 5px;
         transition: .3s;
         background-color: white;
         animation-name: blink;
@@ -61,6 +62,15 @@ const style = (size: number)=> (css`
         0% {opacity: 0;}
         50% {opacity: 1;}
         100% {opacity: 0;}
+    }
+
+    @media screen and (max-width: 710px){
+        .txt {
+          font-size: 35px;
+        }
+        .cursor {
+          height: 35px;
+        }
     }
 `);
 

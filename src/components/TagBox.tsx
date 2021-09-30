@@ -22,6 +22,7 @@ const style = css`
     border-radius: var(--radius);
     border: 1px solid var(--color-main);
     font-size: 19px;
+    white-space: nowrap;
     color: var(--color-main);
     margin: 5px 15px 5px 0;
     transition: .3s;

@@ -60,7 +60,7 @@ function App() {
         <div className='sub-title' id='Contact'>Contact</div>
         <Contact></Contact>
         <div className='footer'>
-          Devloped by KKS. 🧑🏻
+          Developed by KKS 🧑🏻
         </div>
       </div>
     </div>
@@ -117,13 +117,11 @@ const style = css`
     margin-right: 100px;
     width: 310px;
     height: 310px;
-    transition: .5s;
     overflow: hidden;
     img {
       position: absolute;
     }
     .rk {
-      z-index: 1;
       width: 200px;
       animation-name: shaking;
       animation-duration: 5s;
@@ -193,15 +191,26 @@ const style = css`
           top: -116px;
           left: 40px;
           transform: scale(0.16);
-          z-index: 11;
+          z-index: 101;
         }
       }
     }
   }
 
-  @media screen and (max-width: 710px){
+  @media screen and (max-width: 900px){
     .content {
       padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 710px){
+    .intro-box {
+      .im {
+        font-size: 23px !important;
+        .feat {
+          flex-direction: column;
+        }
+      }
     }
   }
 

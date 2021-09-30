@@ -12,18 +12,34 @@ function TopMenu(){
         document.documentElement.scrollTo(0, 0);
     }
 
-    const onClickIcon = ()=>{
+    const toggleScreen = ()=>{
+        const screen = document.querySelector('.screen');
+        if(screen){
+            document.body.removeChild(screen);
+        }else{
+            const el = document.createElement('div');
+            el.className = 'screen';
+            el.onclick = ()=> {
+                onClickIcon();
+            };
+            document.body.appendChild(el);
+        }
+    }
+
+    const toggleDrop = ()=>{
         const menus = divRef.current!.querySelector('.menus')!;
         menus.classList.toggle('drop');
-        if(showDrop){
-        }else{
-        }
-        setShowDrop(!showDrop);
+    }
+
+    const onClickIcon = ()=>{
+        toggleDrop();
+        toggleScreen();
+        setShowDrop((pre)=> !pre);
     }
 
     return (
         <div css={style} ref={divRef}>
-            <div className='tit' onClick={onClickHome}><AiOutlineHome/>KKS.</div>
+            <div className='tit' onClick={onClickHome}><AiOutlineHome/>KKS</div>
             <div className='menus'>
                 <ButtonMenu text='About' targ='About'/>
                 <ButtonMenu text='Projects' targ='Projects'/>
@@ -38,7 +54,7 @@ function TopMenu(){
 }
 
 const style = css`
-    z-index: 10;
+    z-index: 101;
     position: fixed;
     top: 0;
     display: flex;
@@ -71,7 +87,7 @@ const style = css`
         }
     }
 
-    @media screen and (max-width: 710px){
+    @media screen and (max-width: 900px){
         .menus {
             display: none;
         }

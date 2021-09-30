@@ -21,54 +21,33 @@
   background-color: rgb(184, 184, 184);
   border-radius: 10px;
   background-clip: padding-box;
-  // border: 2px solid rgb(184, 184, 184);
 }
 ::-webkit-scrollbar-track {
   background-color: rgb(102, 102, 102);
   border-radius: 10px;
-  // box-shadow: inset 0px 0px 6px rgb(59, 59, 59);
 }
 
 body {
   background-color: var(--color-dark);
-  // background-image: url(./assest/img/stary-sky.jpg);
 }
 
 a {
   color: var(--color-link);
 }
 
-// div, span {
-//   -ms-user-select: none;
-//   -moz-user-select: -moz-none; 
-//   -webkit-user-select: none; 
-//   -khtml-user-select: none; 
-//   user-select:none;
-// }
-
 .sub-title {
   color: var(--color-main);
   font-size: 35px;
   font-weight: bold;
   margin: 160px 0 15px 0;
-  // background: -webkit-linear-gradient(var(--color-main), white);
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
 }
 
-.button {
-  width: fit-content;
-  height: 35px;
-  line-height: 36px;
-  font-size: 18px;
-  box-sizing: content-box;
-  padding: 0 15px;
-  border-radius: var(--radius);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
-  &:hover {
-    box-shadow: 0 10px 20px -6px black;
-  }
+.screen {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // background-color: #ffa7a7b3; 
 }

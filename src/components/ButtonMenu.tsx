@@ -52,7 +52,7 @@ const style = css`
         }
     }
 
-    @media screen and (max-width: 710px){
+    @media screen and (max-width: 900px){
         .txt {
             transition: .3s;
             font-size: 18px;
