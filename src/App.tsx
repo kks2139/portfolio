@@ -214,7 +214,7 @@ const style = css`
     }
   }
 
-  @media screen and (max-width: 385px){
+  @media screen and (max-width: 420px){
     .content {
       width: 100%;
       padding: 0 20px;

@@ -59,7 +59,7 @@ const style = ({size, width}: cssProps)=> (css`
         font-size: 23px;
     }
 
-    @media screen and (max-width: 385px){
+    @media screen and (max-width: 420px){
         width: 245px;
         font-size: 19px;
         .txt-box {

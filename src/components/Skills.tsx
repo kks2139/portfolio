@@ -70,7 +70,7 @@ const style = css`
         justify-content: unset;    
     }
     
-    @media screen and (max-width: 385px) {
+    @media screen and (max-width: 420px) {
         svg {
             width: 40px;
         }

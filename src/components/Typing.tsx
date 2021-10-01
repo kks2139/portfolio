@@ -73,7 +73,7 @@ const style = (size: number)=> (css`
         }
     }
 
-    @media screen and (max-width: 385px){
+    @media screen and (max-width: 420px){
         .txt {
           font-size: 25px;
         }

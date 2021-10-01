@@ -107,7 +107,7 @@ const style = css`
         }
     }
 
-    @media screen and (max-width: 385px){
+    @media screen and (max-width: 420px){
         padding: 0 10px;
     }
 `;

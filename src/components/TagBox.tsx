@@ -31,7 +31,7 @@ const style = css`
         color: #00f5f5;
     }
 
-    @media screen and (max-width: 385px){
+    @media screen and (max-width: 420px){
         font-size: 14px;
         padding: 2px 5px;
     }

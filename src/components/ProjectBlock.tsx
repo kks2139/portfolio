@@ -203,7 +203,7 @@ const style = css`
         }
     }
 
-    @media screen and (max-width: 385px){
+    @media screen and (max-width: 420px){
         .wrapper {
             .preview {
                 width: 100%;
