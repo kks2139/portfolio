@@ -58,6 +58,17 @@ const style = ({size, width}: cssProps)=> (css`
     @media screen and (max-width: 710px){
         font-size: 23px;
     }
+
+    @media screen and (max-width: 385px){
+        width: 245px;
+        font-size: 19px;
+        .txt-box {
+            .txt {
+                min-width: unset;
+                width: unset;
+            }
+        }
+    }
 `);
 
 export default TextSlider;

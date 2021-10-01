@@ -69,6 +69,12 @@ const style = css`
         flex-wrap: wrap;
         justify-content: unset;    
     }
+    
+    @media screen and (max-width: 385px) {
+        svg {
+            width: 40px;
+        }
+    }
 `;
 
 export default Skills;

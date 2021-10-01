@@ -202,6 +202,28 @@ const style = css`
             }
         }
     }
+
+    @media screen and (max-width: 385px){
+        .wrapper {
+            .preview {
+                width: 100%;
+                min-width: unset;
+                height: 280px;
+            }
+            .explain {
+                width: 100%;
+                min-width: unset;
+                .tit {
+                    font-size: 30px;
+                }
+                .link {
+                    svg {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default ProjectBlock;

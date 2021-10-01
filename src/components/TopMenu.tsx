@@ -106,6 +106,10 @@ const style = css`
             backdrop-filter: blur(7px);
         }
     }
+
+    @media screen and (max-width: 385px){
+        padding: 0 10px;
+    }
 `;
 
 export default TopMenu;

@@ -72,6 +72,15 @@ const style = (size: number)=> (css`
           height: 35px;
         }
     }
+
+    @media screen and (max-width: 385px){
+        .txt {
+          font-size: 25px;
+        }
+        .cursor {
+            height: 25px;
+        }
+    }
 `);
 
 export default Typing;

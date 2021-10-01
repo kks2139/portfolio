@@ -30,6 +30,11 @@ const style = css`
         border: 1px solid #00f5f5;
         color: #00f5f5;
     }
+
+    @media screen and (max-width: 385px){
+        font-size: 14px;
+        padding: 2px 5px;
+    }
 `;
 
 export default TagBox;

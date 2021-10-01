@@ -214,6 +214,24 @@ const style = css`
     }
   }
 
+  @media screen and (max-width: 385px){
+    .content {
+      width: 100%;
+      padding: 0 20px;
+      .im {
+        font-size: 20px !important;
+      }
+      .about-box {
+        .rocket-box {
+          left: 0;
+        }
+      }
+      .sub-title {
+        font-size: 32px;
+      }
+    }
+  }
+
 `;
 
 export default App;
