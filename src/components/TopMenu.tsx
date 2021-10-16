@@ -148,6 +148,13 @@ const style = css`
             border-bottom-right-radius: 6px;
             background-color: rgb(0, 0, 0, 0.7);
             backdrop-filter: blur(7px);
+            .theme {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 20px;
+                // height: 45px;
+            }
         }
     }
 

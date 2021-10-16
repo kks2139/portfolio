@@ -72,6 +72,7 @@ const style = (theme: string)=>(css`
             overflow: hidden;
             border-radius: var(--radius);
             background-color: ${theme === 'dark' ? '#2b8165' : 'var(--color-main)'};
+            ${theme === 'dark' ? '' : 'box-shadow: 0 0 25px -5px black;'}
             transition: 1s;
             &:hover {
                 .cir1 {
