@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {AiOutlineMail} from 'react-icons/ai';
 import {CgWebsite} from 'react-icons/cg';
 import {FiGithub} from 'react-icons/fi';
+import { AppTheme } from '../App';
 
 interface Props {
     
 }
 
 function Contact({}: Props){
+    const appTheme = useContext(AppTheme);
+
     const onClick = (e: React.MouseEvent<HTMLDivElement>)=>{
         const url = e.currentTarget.textContent || '';
         window.open(url, 'blank');
     }
 
     return (
-        <div css={style}>
+        <div css={style(appTheme)}>
             <div className='row'>
                 <AiOutlineMail size='35'/>
                 <div className='txt'>eyeyel93@gmail.com</div>
@@ -33,8 +36,8 @@ function Contact({}: Props){
     );
 }
 
-const style = css`
-    color: white;
+const style = (theme: string)=>(css`
+    color: ${theme === 'dark' ? 'white' : 'black'};
     .row {
         display: flex;
         align-items: center;
@@ -42,7 +45,7 @@ const style = css`
         .txt {
             font-size: 20px;
             margin-left: 20px;
-            transition: .3s;
+            transition: .2s;
         }
         .link {
             cursor: pointer;
@@ -51,6 +54,6 @@ const style = css`
             }
         }
     }
-`;
+`);
 
 export default Contact;

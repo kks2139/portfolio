@@ -1,15 +1,28 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {ButtonMenu} from './index';
 import {AiOutlineHome, AiOutlineMenu, AiOutlineClose} from 'react-icons/ai';
+import {FaSun, FaMoon} from 'react-icons/fa';
+import {AppTheme} from '../App';
 
-function TopMenu(){
+interface Props {
+    onThemeChanged: (arg: boolean)=> void
+}
+
+function TopMenu({onThemeChanged}: Props){
+    const appTheme = useContext(AppTheme);
     const [showDrop, setShowDrop] = useState(false);
     const divRef = useRef<HTMLDivElement | null>(null);
 
     const onClickHome = ()=>{
         document.documentElement.scrollTo(0, 0);
+    }
+
+    const onThemeClick = (e: React.MouseEvent<HTMLDivElement>)=>{
+        const classList = e.currentTarget.classList;
+        classList.toggle('dark');
+        onThemeChanged(classList.contains('dark'));
     }
 
     const toggleScreen = ()=>{
@@ -37,10 +50,21 @@ function TopMenu(){
         setShowDrop((pre)=> !pre);
     }
 
+    useEffect(()=>{
+        if(appTheme === 'dark'){
+            const el = divRef.current?.querySelector('.theme');        
+            el?.classList.add('dark');
+        }
+    }, []);
+
     return (
         <div css={style} ref={divRef}>
             <div className='tit' onClick={onClickHome}><AiOutlineHome/>KKS</div>
             <div className='menus'>
+                <div className='theme' onClick={onThemeClick}>
+                    <FaSun color='#ffe000'/>
+                    <FaMoon color='#efff00'/>
+                </div>
                 <ButtonMenu text='About' targ='About'/>
                 <ButtonMenu text='Projects' targ='Projects'/>
                 <ButtonMenu text='Contact' targ='Contact'/>
@@ -77,6 +101,26 @@ const style = css`
     }
     .menus {
         display: flex;
+        .theme {
+            display: flex;
+            align-items: center;
+            width: 28px;
+            overflow: hidden;
+            transition: .3s;
+            cursor: pointer;
+            // border: 1px solid red;
+            svg {
+                min-width: 22px;
+                min-height: 22px;
+                margin: 0 2px;
+                transition: .3s;
+            }
+        }
+        .theme.dark {
+            svg {
+                transform: translateX(-25px);
+            }
+        }
     }
     .icon {
         display: none;

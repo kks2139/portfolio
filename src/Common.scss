@@ -1,7 +1,7 @@
 :root {
   scroll-behavior: smooth;
   --color-main: rgb(0, 255, 200);
-  --color-dark-main: rgb(0, 194, 152);
+  --color-dark-main: rgb(0, 112, 88);
   --color-dark: rgb(41, 41, 41);
   --color-gray: #7b7b7b;
   --color-link: #00dcff;
@@ -28,18 +28,11 @@
 }
 
 body {
-  background-color: var(--color-dark);
+  // background-color: var(--color-dark);
 }
 
 a {
   color: var(--color-link);
-}
-
-.sub-title {
-  color: var(--color-main);
-  font-size: 35px;
-  font-weight: bold;
-  margin: 160px 0 15px 0;
 }
 
 .screen {

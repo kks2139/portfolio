@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {TagBox} from './index';
+import { AppTheme } from '../App';
 
 interface Props {
 
 }
 
 function CareerBlock({}: Props){
+    const appTheme = useContext(AppTheme);
+
     return (
-        <div css={style}>
+        <div css={style(appTheme)}>
             <div className='desc'>
                 <div>
                     엠로 (2018.01 ~) <a href='http://www.emro.co.kr/' target='blank'>http://www.emro.co.kr</a>
@@ -54,8 +57,8 @@ function CareerBlock({}: Props){
     );
 }
 
-const style = css`
-    color: white;
+const style = (theme: string)=>(css`
+    color: ${theme === 'dark' ? 'white' : 'var(--color-dark)'};
     font-size: 19px;
     a {
         font-weight: bold;
@@ -91,6 +94,6 @@ const style = css`
             }
         }
     }
-`;
+`);
 
 export default CareerBlock;

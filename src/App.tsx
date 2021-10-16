@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Common.scss';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
@@ -6,7 +6,10 @@ import {TopMenu, Typing, TextSlider, CareerBlock, ProjectBlock, Skills, Contact}
 import data from './assest/data/data';
 import sky from './assest/img/stary-sky.jpg';
 
+export const AppTheme = React.createContext(''); 
+
 function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const feat = [
       '사용자 입장에서 고민하는',
       '협업의 시너지를 중요시하는',
@@ -14,63 +17,78 @@ function App() {
       '꾸준히 성장해 나가는'
   ];
 
+  const onThemeChanged = (isDark: boolean)=>{
+    setTheme(pre => isDark ? 'dark' : 'light');
+  }
+
   return (
-    <div css={style}> 
-      <TopMenu></TopMenu>
-      <div className='background'></div>
-      <div className='content'>
-        <div className='about-box' id='About'>
-          <div className='intro-box'>
-            <Typing text='Let me introduce myself !' size={47}></Typing>
-            <div className='im'>
-              <span>Hello!</span>
-              <div><span>I'm </span>Kwangsun Kim.</div>
-              <div className='feat'>
-                <TextSlider textList={feat} size={27} width={350}></TextSlider>
-                <span>개발자 입니다.</span>
+    <AppTheme.Provider value={theme}>
+      <div css={style(theme)}> 
+        <TopMenu onThemeChanged={onThemeChanged}></TopMenu>
+        <div className='background'></div>
+        <div className='content'>
+          <div className='about-box' id='About'>
+            <div className='intro-box'>
+              <Typing text='Let me introduce myself !' size={47}></Typing>
+              <div className='im'>
+                <span>Hello!</span>
+                <div><span>I'm </span>Kwangsun Kim.</div>
+                <div className='feat'>
+                  <TextSlider textList={feat} size={27} width={350}></TextSlider>
+                  <span>개발자 입니다.</span>
+                </div>
               </div>
             </div>
+            <div className='rocket-box'>
+              <img className='rk' src='shuttle.png'></img>
+              <img className='st1' src='star.png'></img>
+              <img className='st2' src='star.png'></img>
+              <img className='st3' src='star.png'></img>
+              <img className='st4' src='star.png'></img>
+            </div>
           </div>
-          <div className='rocket-box'>
-            <img className='rk' src='shuttle.png'></img>
-            <img className='st1' src='star.png'></img>
-            <img className='st2' src='star.png'></img>
-            <img className='st3' src='star.png'></img>
-            <img className='st4' src='star.png'></img>
+          <div className='sub-title'>Career</div>
+          <CareerBlock></CareerBlock>
+          <div className='sub-title' id='Projects'>Projects</div>
+          <div className='pjt-wrapper'>
+            {data.projects.map(p => (
+              <ProjectBlock 
+              key={p.projectName}
+              imgUrl={p.imgUrl} 
+              projectName={p.projectName} 
+              period={p.period} 
+              description={p.description} 
+              techList={p.techList}
+              site={p.site}
+              link={p.link}/>
+            ))}
+            </div>
+          <div className='sub-title'>Skills & Tools</div>
+          <Skills></Skills>
+          <div className='sub-title' id='Contact'>Contact</div>
+          <Contact></Contact>
+          <div className='footer'>
+            Developed by KKS 🧑🏻
           </div>
-        </div>
-        <div className='sub-title'>Career</div>
-        <CareerBlock></CareerBlock>
-        <div className='sub-title' id='Projects'>Projects</div>
-        <div className='pjt-wrapper'>
-          {data.projects.map(p => (
-            <ProjectBlock 
-            key={p.projectName}
-            imgUrl={p.imgUrl} 
-            projectName={p.projectName} 
-            period={p.period} 
-            description={p.description} 
-            techList={p.techList}
-            site={p.site}
-            link={p.link}/>
-          ))}
-          </div>
-        <div className='sub-title'>Skills & Tools</div>
-        <Skills></Skills>
-        <div className='sub-title' id='Contact'>Contact</div>
-        <Contact></Contact>
-        <div className='footer'>
-          Developed by KKS 🧑🏻
         </div>
       </div>
-    </div>
+    </AppTheme.Provider>
   );
 }
 
-const style = css`
+const style = (theme: string)=> (css`
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  background-color: ${theme === 'dark' ? 'var(--color-dark)' : 'white'};
+  ${theme !== 'dark' ? 'color: black !important;' : ''}
+  .sub-title {
+    color: var(${theme === 'dark' ? '--color-main' : 'black'});
+    font-size: 35px;
+    font-weight: bold;
+    margin: 160px 0 15px 0;
+  }
+  transition: .3s;
   > .background {
     position: absolute;
     background-image: url(${sky});
@@ -106,7 +124,8 @@ const style = css`
       justify-content: center;
       margin: 270px 0 15px 0;
       height: 30px;
-      color: white;
+      color: ${theme === 'dark' ? 'white' : 'black'};
+      ${theme === 'dark' ? '' : 'font-weight: 500;'}
     }
   }
   .rocket-box {
@@ -231,7 +250,6 @@ const style = css`
       }
     }
   }
-
-`;
+`);
 
 export default App;

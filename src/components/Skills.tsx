@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {SiTypescript, SiJavascript, SiReact, SiHtml5, SiCss3, SiVisualstudiocode, SiGit} from 'react-icons/si';
+import { AppTheme } from '../App';
 
 interface Props {
     
 }
 
 function Skills({}: Props){
+    const appTheme = useContext(AppTheme);
+
     return (
-        <div css={style}>
+        <div css={style(appTheme)}>
             <div>
                 <SiJavascript className='icon1' size='70'/>
                 <div className='txt'>Javascript</div>
@@ -42,10 +45,10 @@ function Skills({}: Props){
     );
 }
 
-const style = css`
+const style = (theme: string)=>(css`
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: ${theme === 'dark' ? 'white' : 'black'};
     margin-bottom: 100px;
     svg {
         margin: 10px 20px;
@@ -55,6 +58,7 @@ const style = css`
         }
     }
     .txt {
+        ${theme === 'dark' ? '' : 'font-weight: 500;'}
         text-align: center;
     }
     .icon1:hover {color: #f0db4f;};
@@ -75,6 +79,6 @@ const style = css`
             width: 40px;
         }
     }
-`;
+`);
 
 export default Skills;

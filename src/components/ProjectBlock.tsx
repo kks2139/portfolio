@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 /** @jsxImportSource @emotion/react */
 import {css} from '@emotion/react';
 import {TagBox} from './index';
 import {SiGithub} from 'react-icons/si';
 import {HiOutlineExternalLink} from 'react-icons/hi';
+import { AppTheme } from '../App';
 
 interface Props {
     imgUrl: string
@@ -16,6 +17,7 @@ interface Props {
 }
 
 function ProjectBlock({imgUrl, projectName, period, description, techList, link, site}: Props){
+    const appTheme = useContext(AppTheme);
 
     const onClickLink = (e: React.MouseEvent<SVGElement>)=>{
         const {name} = e.currentTarget.dataset;
@@ -24,7 +26,7 @@ function ProjectBlock({imgUrl, projectName, period, description, techList, link,
     } 
 
     return (
-        <div css={style}>
+        <div css={style(appTheme)}>
             <div className='wrapper'>
                 <div className='preview'>
                     <img src={imgUrl}></img>
@@ -37,9 +39,6 @@ function ProjectBlock({imgUrl, projectName, period, description, techList, link,
                     <div className='tit'>
                         {projectName}
                     </div>
-                    {/* <div className='for'>
-                        {period}
-                    </div> */}
                     <div className='desc'>
                         {description}
                     </div>
@@ -58,7 +57,7 @@ function ProjectBlock({imgUrl, projectName, period, description, techList, link,
     );
 }
 
-const style = css`
+const style = (theme: string)=>(css`
     padding: 20px 0;
     margin-bottom: 100px;
     .wrapper {
@@ -72,7 +71,7 @@ const style = css`
             padding: 40px;
             overflow: hidden;
             border-radius: var(--radius);
-            background-color: #2b8165;
+            background-color: ${theme === 'dark' ? '#2b8165' : 'var(--color-main)'};
             transition: 1s;
             &:hover {
                 .cir1 {
@@ -89,7 +88,6 @@ const style = css`
                 }
                 img {
                     transform: scale(1.05);
-                    box-shadow: 0 0 30px 10px black;
                 }
             }
             img {
@@ -98,7 +96,7 @@ const style = css`
                 width: 100%;
                 height: 100%;
                 border-radius: 10px;
-                box-shadow: 0 0 30px 5px black;
+                box-shadow: 0 0 20px 3px black;
                 transition: .5s;
             }
             [class*='cir'] {
@@ -138,11 +136,12 @@ const style = css`
         .explain {
             padding-left: 40px;
             flex-grow: 1;
-            color: white;
+            color: ${theme === 'dark' ? 'white' : 'black'};
             transition: 1s;
             .tit {
-                color: var(--color-main);
-                font-size: 37px;
+                color: var(${theme === 'dark' ? '--color-main' : 'black'});
+                font-weight: 500;
+                font-size: 35px;
                 margin-bottom: 20px;
             }
             .for {
@@ -224,6 +223,6 @@ const style = css`
             }
         }
     }
-`;
+`);
 
 export default ProjectBlock;
