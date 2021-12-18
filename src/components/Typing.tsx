@@ -44,7 +44,6 @@ const style = (size: number)=> (css`
         .hide {
             display: none;
         }
-        .eli
     }
     .cursor {
         width: 4px;
@@ -66,7 +65,7 @@ const style = (size: number)=> (css`
 
     @media screen and (max-width: 710px){
         .txt {
-          font-size: 35px;
+          font-size: 28px;
         }
         .cursor {
           height: 35px;
@@ -75,7 +74,7 @@ const style = (size: number)=> (css`
 
     @media screen and (max-width: 420px){
         .txt {
-          font-size: 25px;
+          font-size: 22px;
         }
         .cursor {
             height: 25px;

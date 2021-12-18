@@ -221,6 +221,9 @@ const style = (theme: string)=>(css`
                         width: 40px;
                     }
                 }
+                .tech {
+                    
+                }
             }
         }
     }

@@ -60,6 +60,7 @@ function CareerBlock({}: Props){
 const style = (theme: string)=>(css`
     color: ${theme === 'dark' ? 'white' : 'var(--color-dark)'};
     font-size: 19px;
+    padding: 0 20px;
     a {
         font-weight: bold;
         margin: 0 5px;
